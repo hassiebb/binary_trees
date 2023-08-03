@@ -46,10 +46,10 @@ int remove_type(bst_t *root)
 {
 	if (!root->left && !root->right)
 	{
-		if (root->parentPo->right == root)
-			root->parentPo->right = NULL;
+		if (root->parent->right == root)
+			root->parent->right = NULL;
 		else
-			root->parentPo->left = NULL;
+			root->parent->left = NULL;
 		free(root);
 		return (0);
 	}
@@ -57,19 +57,19 @@ int remove_type(bst_t *root)
 	{
 		if (!root->left)
 		{
-			if (root->parentPo->right == root)
-				root->parentPo->right = root->right;
+			if (root->parent->right == root)
+				root->parent->right = root->right;
 			else
-				root->parentPo->left = root->right;
-			root->right->parentPo = root->parentPo;
+				root->parent->left = root->right;
+			root->right->parent = root->parent;
 		}
 		if (!root->right)
 		{
-			if (root->parentPo->right == root)
-				root->parentPo->right = root->left;
+			if (root->parent->right == root)
+				root->parent->right = root->left;
 			else
-				root->parentPo->left = root->left;
-			root->left->parentPo = root->parentPo;
+				root->parent->left = root->left;
+			root->left->parent = root->parent;
 		}
 		free(root);
 		return (0);

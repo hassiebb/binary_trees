@@ -11,10 +11,10 @@
  */
 binary_tree_t *binary_tree_uncle(binary_tree_t *node)
 {
-	if (!node || !node->parentPo)
+	if (!node || !node->parent)
 		return (NULL);
 
-	return (binary_tree_sibling(node->parentPo));
+	return (binary_tree_sibling(node->parent));
 }
 
 /**
@@ -28,10 +28,10 @@ binary_tree_t *binary_tree_uncle(binary_tree_t *node)
  */
 binary_tree_t *binary_tree_sibling(binary_tree_t *node)
 {
-	if (!node || !node->parentPo)
+	if (!node || !node->parent)
 		return (NULL);
 
-	if (node == node->parentPo->left)
-		return (node->parentPo->right);
-	return (node->parentPo->left);
+	if (node == node->parent->left)
+		return (node->parent->right);
+	return (node->parent->left);
 }
