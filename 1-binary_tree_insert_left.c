@@ -6,9 +6,9 @@
  * @parent: is a pointer to the node to insert the left-child in
  * @value:  is the value to store in the new node
  *
- * Description - If parent has a left-child, new node takes its place, 
- * 				 and the old left-child becomes the 
- * 				 left-child of the new node..
+ * Description - If parent has a left-child, new node takes its place,
+ * 				 and the old left-child becomes the
+ * 				 left-child of the new node.
  *
  * Return: a pointer to the created node, or NULL on failure or if
  *			parent is NULL
