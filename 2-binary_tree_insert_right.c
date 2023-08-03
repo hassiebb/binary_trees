@@ -4,7 +4,7 @@
  * binary_tree_insert_right - inserts a node as the
  *					right-child of another node
  *
- * @parent: is a pointer to the node to insert the right-child in
+ * @parentPo: is a pointer to the node to insert the right-child in
  * @value: is the value to store in the new node
  *
  * Description: If parent already has a right-child, the new node
@@ -16,11 +16,11 @@
  *			if parent is NULL
  */
 
-binary_tree_t *binary_tree_insert_right(binary_tree_t *parent, int value)
+binary_tree_t *binary_tree_insert_right(binary_tree_t *parentPo, int value)
 {
 	binary_tree_t *new;
 
-	if (!parent)
+	if (!parentPo)
 		return (NULL);
 
 	new = malloc(sizeof(binary_tree_t));
@@ -28,11 +28,11 @@ binary_tree_t *binary_tree_insert_right(binary_tree_t *parent, int value)
 		return (NULL);
 
 	new->n = value;
-	new->parent = parent;
+	new->parentPo = parentPo;
 	new->left = NULL;
-	new->right = parent->right;
-	parent->right = new;
+	new->right = parentPo->right;
+	parentPo->right = new;
 	if (new->right)
-		new->right->parent = new;
+		new->right->parentPo = new;
 	return (new);
 }

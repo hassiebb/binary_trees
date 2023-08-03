@@ -130,10 +130,10 @@ int heap_extract(heap_t **root)
 	_preorder(heap_r, &node, tree_height(heap_r));
 
 	heap_r->n = node->n;
-	if (node->parent->right)
-		node->parent->right = NULL;
+	if (node->parentPo->right)
+		node->parentPo->right = NULL;
 	else
-		node->parent->left = NULL;
+		node->parentPo->left = NULL;
 	free(node);
 	heapify(heap_r);
 	*root = heap_r;

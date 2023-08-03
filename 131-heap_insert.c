@@ -40,12 +40,12 @@ heap_t *heap_insert(heap_t **root, int value)
 	leaves & 1 ? (tree->right = new) : (tree->left = new);
 
 	flip = new;
-	for (; flip->parent && (flip->n > flip->parent->n); flip = flip->parent)
+	for (; flip->parentPo && (flip->n > flip->parentPo->n); flip = flip->parentPo)
 	{
 		tmp = flip->n;
-		flip->n = flip->parent->n;
-		flip->parent->n = tmp;
-		new = new->parent;
+		flip->n = flip->parentPo->n;
+		flip->parentPo->n = tmp;
+		new = new->parentPo;
 	}
 	/* Flip values with parent until parent value exceeds new value */
 

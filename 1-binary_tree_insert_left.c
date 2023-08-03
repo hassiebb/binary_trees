@@ -3,7 +3,7 @@
 /**
  * binary_tree_insert_left -  inserts a node as the left-child of another node
  *
- * @parent: is a pointer to the node to insert the left-child in
+ * @parentPo: is a pointer to the node to insert the left-child in
  * @value:  is the value to store in the new node
  *
  * Description - If parent already has a left-child, the new node must
@@ -14,11 +14,11 @@
  *			parent is NULL
  */
 
-binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value)
+binary_tree_t *binary_tree_insert_left(binary_tree_t *parentPo, int value)
 {
 	binary_tree_t *new;
 
-	if (!parent)
+	if (!parentPo)
 		return (NULL);
 
 	new = malloc(sizeof(binary_tree_t));
@@ -26,11 +26,11 @@ binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value)
 		return (NULL);
 
 	new->n = value;
-	new->parent = parent;
+	new->parentPo = parentPo;
 	new->right = NULL;
-	new->left = parent->left;
-	parent->left = new;
+	new->left = parentPo->left;
+	parentPo->left = new;
 	if (new->left)
-		new->left->parent = new;
+		new->left->parentPo = new;
 	return (new);
 }

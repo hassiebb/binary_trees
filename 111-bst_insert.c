@@ -36,12 +36,12 @@ bst_t *bst_insert(bst_t **tree, int value)
 	else if (value < second->n)
 	{
 		second->left = new;
-		new->parent = second;
+		new->parentPo = second;
 	}
 	else
 	{
 		second->right = new;
-		new->parent = second;
+		new->parentPo = second;
 	}
 
 	return (new);
