@@ -3,14 +3,14 @@
 /**
  * binary_tree_postorder - goes through a binary tree using post-order traverse
  * @tree: tree to traverse
- * @func: pointer to a function to call for each node
+ * @funPo: pointer to a function to call for each node
  */
-void binary_tree_postorder(const binary_tree_t *tree, void (*func)(int))
+void binary_tree_postorder(const binary_tree_t *tree, void (*funPo)(int))
 {
-	if (!tree || !func)
+	if (!tree || !funPo)
 		return;
 
-	binary_tree_postorder(tree->left, func);
-	binary_tree_postorder(tree->right, func);
-	func(tree->n);
+	binary_tree_postorder(tree->left, funPo);
+	binary_tree_postorder(tree->right, funPo);
+	funPo(tree->n);
 }
